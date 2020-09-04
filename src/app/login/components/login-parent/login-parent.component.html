@@ -1,0 +1,5 @@
+<div class="container">
+        <app-sign-in *ngIf="selectedPage=='signin'" (currentPage)="selectPage($event)" class="row"></app-sign-in>
+        <app-sign-up *ngIf="selectedPage=='signup'" (currentPage)="selectPage($event)" class="row"></app-sign-up>
+</div>
+
