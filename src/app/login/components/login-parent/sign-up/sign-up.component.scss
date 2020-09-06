@@ -1,0 +1,5 @@
+@import "mixins";
+
+.successfully-registered{
+    @include font-size(23);
+}

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { LoginRoutingModule } from './login-routing.module';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/login-parent/sign-in/sign-in.component';
+import { SignUpComponent } from './components/login-parent/sign-up/sign-up.component';
 import { LoginParentComponent } from './components/login-parent/login-parent.component';
 
 
@@ -14,7 +14,8 @@ import { LoginParentComponent } from './components/login-parent/login-parent.com
   imports: [
     CommonModule,
     LoginRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

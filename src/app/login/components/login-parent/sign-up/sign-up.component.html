@@ -1,0 +1,45 @@
+<form class="col-sm-4 offset-sm-4 mt-4" [formGroup]="userDetailsForm" (ngSubmit)="submitForm()" [hidden]="formSubmitted">
+  <h2>SignUp</h2>
+  <div class="form-group">
+    <label for="inputEmail4">Email</label>
+    <input type="email" class="form-control" placeholder="Email" formControlName="emailId">
+    <div *ngIf="email.invalid && email.touched" class="text-danger">
+      <div *ngIf="email.errors.required">
+        email Id is required
+      </div>
+      <div *ngIf="email.errors.invalidEmail && !email.errors.required">
+        email invalid
+      </div>
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword4">Password</label>
+    <input type="password" class="form-control" placeholder="Password" formControlName="password">
+    <div *ngIf="password.invalid && password.touched" class="text-danger">
+      Invalid
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword4">Confirm Password</label>
+    <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+    <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger">
+      <div *ngIf="confirmPassword.errors.required">
+        Password required
+      </div>
+      <div *ngIf="confirmPassword.errors.invalidPassword">
+        Password don't match with password
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="userDetailsForm.invalid">Sign Up</button>
+  <div class="form-check-label">
+    Already have account <span (click)="goToSignin()" class="text-primary cursor-pointer">Sign In</span>
+  </div>
+</form>
+
+<div *ngIf="formSubmitted" class="text-light bg-dark successfully-registered col-sm-4 offset-sm-4 mt-4 p-4">
+  You are successfully registered.
+</div>
+
+<button *ngIf="formSubmitted" type="submit" class="btn btn-primary col-sm-4 offset-sm-4 mt-4" (click)="goToSignin()">Go to Login</button>
