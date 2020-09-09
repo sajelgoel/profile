@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="inputEmail4">Email</label>
     <input type="email" class="form-control" placeholder="Email" formControlName="emailId">
-    <div *ngIf="email.invalid && email.touched" class="text-danger">
+    <div *ngIf="email.invalid && email.touched" class="text-danger mt-1">
       <div *ngIf="email.errors.required">
         email Id is required
       </div>
@@ -16,14 +16,14 @@
   <div class="form-group">
     <label for="inputPassword4">Password</label>
     <input type="password" class="form-control" placeholder="Password" formControlName="password">
-    <div *ngIf="password.invalid && password.touched" class="text-danger">
-      Invalid
+    <div *ngIf="password.invalid && password.touched" class="text-danger mt-1">
+      Enter strong password
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword4">Confirm Password</label>
     <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
-    <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger">
+    <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="text-danger mt-1">
       <div *ngIf="confirmPassword.errors.required">
         Password required
       </div>
@@ -33,13 +33,13 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="userDetailsForm.invalid">Sign Up</button>
-  <div class="form-check-label">
+  <div class="form-check-label mt-2">
     Already have account <span (click)="goToSignin()" class="text-primary cursor-pointer">Sign In</span>
   </div>
 </form>
 
-<div *ngIf="formSubmitted" class="text-light bg-dark successfully-registered col-sm-4 offset-sm-4 mt-4 p-4">
+<div *ngIf="formSubmitted" class="bg-dark col-10 col-sm-4 mt-4 offset-1 offset-sm-4 p-4 successfully-registered text-light">
   You are successfully registered.
 </div>
 
-<button *ngIf="formSubmitted" type="submit" class="btn btn-primary col-sm-4 offset-sm-4 mt-4" (click)="goToSignin()">Go to Login</button>
+<button *ngIf="formSubmitted" type="submit" class="btn btn-primary col-10 col-sm-4 mt-4 offset-1 offset-sm-4" (click)="goToSignin()">Go to Login</button>

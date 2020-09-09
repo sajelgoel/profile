@@ -3,14 +3,14 @@
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" 
-        placeholder="Enter email" [(ngModel)]="userCreds.emailId" name="emailId" required minlength="5"
+        placeholder="Enter email" [(ngModel)]="userCreds.emailId" name="emailId" required [pattern]="emailPattern"
         #emailref="ngModel">
-        <div *ngIf="emailref.invalid && emailref.touched" class="text-danger">
+        <div *ngIf="emailref.invalid && emailref.touched" class="text-danger mt-1">
             <div *ngIf="emailref.errors.required">
                 Email is required.
             </div>
-            <div *ngIf="emailref.errors.minlength">
-                Email must be at least 5 characters long.
+            <div *ngIf="emailref.errors.pattern">
+                This is not a valid Email!!!
             </div>
         </div>
     </div>
@@ -19,12 +19,12 @@
         <input type="password" class="form-control" 
         placeholder="Password" [(ngModel)]="userCreds.password" name="password" required
         #passwordref="ngModel">
-        <div *ngIf="!passwordref.valid && passwordref.touched" class="text-danger">
+        <div *ngIf="!passwordref.valid && passwordref.touched" class="text-danger mt-1">
             Password is required!
         </div>
     </div>
     <button class="btn btn-primary" [disabled]="!loginForm.valid">Sign In</button>
-    <div class="form-check-label">
+    <div class="form-check-label mt-2">
         Not a member, <span (click)="goToSignup()" class="text-primary cursor-pointer">Sign Up</span>
     </div>
 </form>
